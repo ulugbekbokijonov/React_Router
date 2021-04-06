@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Hero from './Hero';
+import FullCard from './FullCard';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+ const data  = [
+     {
+         title:"Nexia",
+         description:"This is Nexia_3"
+     },
+     {
+        title:"Spark",
+        description:"This is Spark"
+    },
+    {
+        title:"Malibu",
+        description:"This is Malibu"
+    },
+    {
+        title:"Damas",
+        description:"This is Damas"
+    },
+    {
+        title:"Matiz",
+        description:"This is Matiz"
+    },
+    {
+        title:"Tico",
+        description:"This is Tico"
+    },
+ ]
+
+    return (
+       <Router>
+           <Route exact path="/">
+               <Hero data={data} />
+           </Route>
+           <Route  path="/cards/:title">
+               <FullCard data={data} />
+           </Route>
+       </Router>
+    )
 }
 
-export default App;
+export default App
